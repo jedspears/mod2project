@@ -4,6 +4,7 @@ class CreateTransacktions < ActiveRecord::Migration[5.2]
       t.integer :user_1_id
       t.integer :user_2_id
       t.integer :amount
+      t.integer :bet_id
 
       t.timestamps
     end

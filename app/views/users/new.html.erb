@@ -1,0 +1,17 @@
+<%if flash[:notice]%>
+  <h1><%=flash[:notice]%></h1>
+<%end%>
+<h1>Sign Up</h1>
+<%= form_for @user do |f| %>
+  <%= f.label "First Name" %>
+  <%= f.text_field :first_name %>
+  <%= f.label "Last Name" %>
+  <%= f.text_field :last_name %>
+  <%= f.label "Username" %>
+  <%= f.text_field :username %>
+  <%= f.label "Password" %>
+  <%= f.text_field :password %>
+  <%= f.label "Email" %>
+  <%= f.text_field :email %>
+  <%= f.submit "Register" %>
+<% end %>

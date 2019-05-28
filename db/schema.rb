@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_151422) do
     t.integer "user_1_id"
     t.integer "user_2_id"
     t.integer "amount"
+    t.integer "bet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_151422) do
     t.text "first_name"
     t.text "last_name"
     t.text "username"
+    t.text "password"
     t.text "email"
     t.integer "account_balance"
     t.datetime "created_at", null: false

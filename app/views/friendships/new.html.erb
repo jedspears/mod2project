@@ -1,0 +1,6 @@
+<h1>Enter Username</h1>
+<%= form_for @user, :url => create_friendship_path do |f| %>
+  <%= f.label "Username" %>
+  <%= f.text_field :username %>
+  <%= f.submit "Add Friend" %>
+<% end %>
