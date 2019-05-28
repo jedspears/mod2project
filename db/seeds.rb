@@ -12,3 +12,22 @@ User.create(first_name: "Carly", last_name: "Pecora", username:"hgds", email:"hj
 645645432)
 User.create(first_name: "Won", last_name: "Kim", username:"llaaa", email:"uuuuu@ggg.com", account_balance:
 47474785848)
+
+Bet.create(description: "helo")
+
+Transacktion.create(user_1_id:1 ,user_2_id:2 ,amount:10, bet_id: 1)
+
+UserTransaction.create(user_id: 1, transacktion_id:1)
+UserTransaction.create(user_id: 2, transacktion_id:1)
+
+
+Bet.create(description: "destroy")
+
+Transacktion.create(user_1_id:1 ,user_2_id:2 ,amount:10, bet_id: 2)
+Transacktion.create(user_1_id:1 ,user_2_id:3 ,amount:10, bet_id: 2)
+Transacktion.create(user_1_id:1 ,user_2_id:4 ,amount:10, bet_id: 2)
+
+UserTransaction.create(user_id: 1, transacktion_id:2)
+UserTransaction.create(user_id: 2, transacktion_id:2)
+UserTransaction.create(user_id: 3, transacktion_id:2)
+UserTransaction.create(user_id: 4, transacktion_id:2)
