@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_151422) do
     t.text "first_name"
     t.text "last_name"
     t.text "username"
-    t.text "password"
+    t.string "password_digest"
     t.text "email"
     t.integer "account_balance"
     t.datetime "created_at", null: false

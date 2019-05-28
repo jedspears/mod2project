@@ -5,4 +5,7 @@ class User < ApplicationRecord
   has_many :transacktions, through: :user_transactions
 
   validates :username, uniqueness: true
+
+  has_secure_password
+
 end
