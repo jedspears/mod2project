@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/success', to: 'application#success', as: 'success'
   post '/friendships/create', to: 'friendships#create', as: 'create_friendship'
   get '/friendships', to: 'friendships#index', as: 'friendships'
+  get '/login', to: 'application#login', as: 'login'
+  get '/confirm', to: 'application#confirm', as: 'confirm'
   resources :user_transactions
   resources :bets
   resources :transactions
