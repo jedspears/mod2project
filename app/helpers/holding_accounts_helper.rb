@@ -1,0 +1,2 @@
+module HoldingAccountsHelper
+end

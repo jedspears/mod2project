@@ -1,0 +1,2 @@
+class HoldingAccountsController < ApplicationController
+end
