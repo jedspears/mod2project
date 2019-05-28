@@ -1,0 +1,11 @@
+class CreateTransacktions < ActiveRecord::Migration[5.2]
+  def change
+    create_table :transacktions do |t|
+      t.integer :user_1_id
+      t.integer :user_2_id
+      t.integer :amount
+
+      t.timestamps
+    end
+  end
+end
