@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get '/friendships', to: 'friendships#index', as: 'friendships'
   get '/bets/new', to: 'bets#new', as: 'new_bet'
   post '/bets/create', to: 'bets#create', as: 'create_bet'
+  get '/login', to: 'application#login', as: 'login'
+  get '/confirm', to: 'application#confirm', as: 'confirm'
+
   resources :user_transactions
   resources :bets
   resources :transactions
