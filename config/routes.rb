@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   post '/bets/create', to: 'bets#create', as: 'create_bet'
   get '/login', to: 'application#login', as: 'login'
   get '/confirm', to: 'application#confirm', as: 'confirm'
+  get '/bets/:id', to: 'bets#show', as: 'bet'
+  get '/bets', to: 'bets#index', as: 'bets'
 
   resources :user_transactions
   resources :bets

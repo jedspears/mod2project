@@ -18,6 +18,24 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # @current_user = current_user
+  end
+
+  def edit
+    @user = User.find(params[:id])
+    # @current_user = current_user
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update(user_params)
+      session[:user] = @user.id
+      redirect_to @user
+    else
+      flash[:notice] = @user.errors.full_messages[0]
+      redirect_to edit_user_path
+    end
   end
 
 

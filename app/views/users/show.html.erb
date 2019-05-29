@@ -3,12 +3,15 @@
 <%=@user.username%><br>
 <%=@user.email%><br>
 
-<%if @current_user != @user %>
+<%if current_user != @user %>
   <%= button_to "Start Bet", new_bet_path, method: :get%>
 <%end%>
+
 
 <% if current_user == @user%>
   <%=@user.account_balance%>
 <%end%>
 
-<%= button_to "Edit Account", edit_user_path(@user), method: :get%>
+<% if current_user == @user%>
+  <%= button_to "Edit Account", edit_user_path(@user), method: :get%>
+<%end%>

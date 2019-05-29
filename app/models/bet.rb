@@ -1,6 +1,6 @@
 class Bet < ApplicationRecord
   has_many :transacktions
-  has_one :holding_account 
+  has_one :holding_account
   accepts_nested_attributes_for :transacktions
 
   def transacktions_attributes=(transacktion_attributes)
@@ -13,7 +13,7 @@ class Bet < ApplicationRecord
   def pot
     pot = 0
     self.transacktions.map { |t| pot += t.amount }
-    pot
+    pot * (self.transacktions.length + 1)
   end
 
   def get_usernames
@@ -32,6 +32,7 @@ class Bet < ApplicationRecord
     end
     users
   end
+ 
 
 
 end
