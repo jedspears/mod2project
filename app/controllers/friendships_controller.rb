@@ -1,7 +1,7 @@
 class FriendshipsController < ApplicationController
 
   def index
-    @user = User.find(session[:user]["id"])
+    @user = User.find(session[:user])
     # byebug
   end
 
@@ -11,8 +11,8 @@ class FriendshipsController < ApplicationController
 
   def create
     @friend_id = User.find_by(username: params[:user][:username]).id
-    @friendship1 = Friendship.create(user_id: session[:user]["id"], friend_id: @friend_id)
-    @friendship2 = Friendship.create(user_id: @friend_id, friend_id: session[:user]["id"])
+    @friendship1 = Friendship.create(user_id: session[:user], friend_id: @friend_id)
+    @friendship2 = Friendship.create(user_id: @friend_id, friend_id: session[:user])
     # byebug
     redirect_to home_path
   end

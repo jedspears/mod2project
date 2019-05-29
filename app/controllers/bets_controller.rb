@@ -2,7 +2,7 @@ class BetsController < ApplicationController
 
   def new
     @bet = Bet.new
-    @user = User.find(session[:user]["id"])
+    @user = User.find_by(id: session[:user])
   end
 
   def create
