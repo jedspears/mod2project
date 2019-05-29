@@ -2,7 +2,7 @@ class BetsController < ApplicationController
 
   def new
     @bet = Bet.new
-    @user = User.find_by(id: session[:user])
+    @user = current_user
   end
 
   def create
@@ -11,6 +11,11 @@ class BetsController < ApplicationController
     @holding_account = HoldingAccount.create(balance: @bet.pot, bet_id: @bet.id)
     # byebug
     redirect_to @bet
+  end
+
+  def index
+    @user = current_user
+    # byebug
   end
 
   def show
