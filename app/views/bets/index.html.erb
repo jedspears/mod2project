@@ -1,14 +1,30 @@
-<%@user.bets.each do |bet|%>
-  <%=link_to bet_path(bet) do %>
-    <div>
-      Pot: $<%=bet.pot%><br>
-      Participants:
-      <ul>
-        <%bet.get_users.each do |user|%>
-          <li><%=user.username%> </li>
-        <%end%>
-      </ul>
-      Description: <%=bet.description%>
-    </div><br>
+<h1>Active:</h1>
+<%if @active_bets.nil?%>
+  <%="No active bets"%>
+<%else%>
+  <%@active_bets.each do |bet|%>
+    <%=link_to orange_bet_path(bet) do %>
+      <div>
+        Pot: $<%=bet.amount%><br>
+        Participants: <%=bet.username1%> <%=bet.username2%>
+        Description: <%=bet.description%>
+      </div><br>
+    <%end%>
   <%end%>
-<%end%>
+<%end%><br>
+
+<h1>Closed:</h1>
+<% if @closed_bets.nil?%>
+  <%="No closed bets"%>
+<%else%>
+  <%@closed_bets.each do |bet|%>
+    <%=link_to bet_path(bet) do %>
+      <div>
+        Pot: $<%=bet.amount%><br>
+        Participants: <%=bet.username1%> <%=bet.username2%>
+        Description: <%=bet.description%>
+        Winner: <%=bet.real_winner%>
+      </div><br>
+    <%end%>
+  <%end%>
+<%end%><br>

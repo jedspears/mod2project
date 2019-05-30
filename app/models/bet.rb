@@ -1,19 +1,10 @@
 class Bet < ApplicationRecord
   has_many :user_bets
-  has_many :user, through: :user_bets
+  has_many :users, through: :user_bets
   has_one :holding_account
 
   after_create :subtract_money, :associate
-
-
-  # accepts_nested_attributes_for :transacktions
-  #
-  # def transacktions_attributes=(transacktion_attributes)
-  #   # byebug
-  #   transacktion = Transacktion.create(transacktion_attributes["0"])
-  #   self.transacktions << transacktion
-  #   # byebug
-  # end
+  # after_update :assign_winner
 
   def pot
     pot = self.amount * 2
@@ -43,12 +34,33 @@ class Bet < ApplicationRecord
     end
   end
 
+  def reward_money
+    # byebug
+    @winner = User.find_by(username: self.real_winner)
+    @winner.account_balance += self.pot
+    @winner.save
+  end
+
   def associate
     self.get_users.each do |user|
       UserBet.create(user_id: user.id, bet_id: self.id)
     end
   end
 
+  def assign_winner
+    # byebug
+    if self.winner1 == self.winner2
+      self.real_winner = self.winner1
+      self.reward_money
+      self.change_status
+    end
+  end
 
+  def change_status
+    # byebug
+    self.update(status: "closed")
+    # self.status = "closed"
+    # self.save
+  end
 
 end
