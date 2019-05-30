@@ -1,7 +1,7 @@
 class FriendshipsController < ApplicationController
 
   def index
-    @user = User.find(session[:user])
+    @user = current_user
     # byebug
   end
 

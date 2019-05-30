@@ -1,0 +1,2 @@
+class UserBetRequestsController < ApplicationController
+end

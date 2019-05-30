@@ -2,16 +2,11 @@
 <%= form_for @bet, :url => create_bet_path do |f| %>
   <%= f.label "Description" %>
   <%= f.text_area :description %>
-
-  <%= f.fields_for :transacktions, @bet.transacktions.build do |t_fields| %>
-    <%= t_fields.label "Username 1" %>
-    <%= t_fields.text_field :username1, value: @user.username %>
-    <%= t_fields.label "Username 2" %>
-    <%= t_fields.text_field :username2 %>
-    <%= t_fields.label "Amount" %>
-    <%= t_fields.number_field :amount %>
-    <%= t_fields.hidden_field :bet_id, value: @bet.id%>
-
-  <% end %>
+  <%= f.label "Username 1" %>
+  <%= f.text_field :username1, value: @user.username %>
+  <%= f.label "Username 2" %>
+  <%= f.text_field :username2 %>
+  <%= f.label "Amount" %>
+  <%= f.number_field :amount %>
   <%= f.submit "Start Bet" %>
 <% end %>

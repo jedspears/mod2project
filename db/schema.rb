@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_28_210815) do
+ActiveRecord::Schema.define(version: 2019_05_29_163834) do
+
+  create_table "bet_requests", force: :cascade do |t|
+    t.text "sender"
+    t.text "recipient"
+    t.integer "amount"
+    t.text "description"
+    t.boolean "accept"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "bets", force: :cascade do |t|
     t.text "description"
+    t.string "username1"
+    t.string "username2"
+    t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -32,18 +45,16 @@ ActiveRecord::Schema.define(version: 2019_05_28_210815) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "transacktions", force: :cascade do |t|
-    t.string "username1"
-    t.string "username2"
-    t.integer "amount"
-    t.integer "bet_id"
+  create_table "user_bet_requests", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "bet_request_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_transactions", force: :cascade do |t|
+  create_table "user_bets", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "transacktion_id"
+    t.integer "bet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
