@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/bets/:id', to: 'bets#show', as: 'bet'
   get '/bets', to: 'bets#index', as: 'bets'
 
+  resources :charges, only: :create
   resources :user_transactions
   resources :bets
   resources :transactions
