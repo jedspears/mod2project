@@ -6,10 +6,8 @@ class BetsController < ApplicationController
   end
 
   def create
-    # byebug
     @bet = Bet.create(bet_params)
     @holding_account = HoldingAccount.create(balance: @bet.pot, bet_id: @bet.id)
-    # byebug
     redirect_to @bet
   end
 
@@ -19,6 +17,7 @@ class BetsController < ApplicationController
   end
 
   def show
+    byebug
     @bet = Bet.find(params[:id])
   end
 
@@ -27,6 +26,6 @@ class BetsController < ApplicationController
   private
 
   def bet_params
-    params.require(:bet).permit(:description, transacktions_attributes: [:username1, :username2, :amount, :bet_id])
+    params.require(:bet).permit(:description, :username1, :username2, :amount, :accept?)
   end
 end

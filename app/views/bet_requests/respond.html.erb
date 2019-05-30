@@ -1,0 +1,11 @@
+<h1>Do You Accept These Terms?</h1>
+Description: <%=@bet_request.description%><br>
+Amount: <%=@bet_request.amount%><br>
+From: <%=@bet_request.sender%><br>
+<%=form_for @bet_request, :url => bananas_path(@bet_request) do |f| %>
+  <%= f.label "Yes:" %>
+  <%= f.radio_button :accept?, true, :value => true %>
+  <%= f.label "No:" %>
+  <%= f.radio_button :accept?, false, :value => false%><br>
+  <%= f.submit "Send Response"%>
+<%end%>

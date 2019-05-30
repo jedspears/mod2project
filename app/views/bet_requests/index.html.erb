@@ -1,0 +1,29 @@
+<h1>Sent:</h1>
+<%if @sent.nil?%>
+  <%="No pending requests in outbox"%>
+<%else%>
+  <%@sent.each do |bet_request|%>
+    <%=link_to bet_request_path(bet_request) do %>
+      <div>
+        Wager: $<%=bet_request.amount%><br>
+        Recipient: <%=bet_request.recipient%>
+        Description: <%=bet_request.description%>
+      </div><br>
+    <%end%>
+  <%end%>
+<%end%><br>
+
+<h1>Received:</h1>
+<% if @received.nil?%>
+  <%="No pending requests in inbox"%>
+<%else%>
+  <%@received.each do |bet_request|%>
+    <%=link_to respond_bet_request_path(bet_request) do %>
+      <div>
+        Wager: $<%=bet_request.amount%><br>
+        Sender: <%=bet_request.sender%>
+        Description: <%=bet_request.description%>
+      </div><br>
+    <%end%>
+  <%end%>
+<%end%><br>

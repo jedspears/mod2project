@@ -1,0 +1,11 @@
+<h1>Edit Bet Request</h1>
+<%= form_for @bet_request, :url => update_bet_request_path(@bet_request) do |f| %>
+  <%= f.label "Description" %>
+  <%= f.text_area :description %>
+  <%= f.hidden_field :sender, value: current_user.username %>
+  <%= f.label "Recipient" %>
+  <%= f.text_field :recipient %>
+  <%= f.label "Amount" %>
+  <%= f.number_field :amount %>
+  <%= f.submit "Update Bet" %>
+<% end %>
