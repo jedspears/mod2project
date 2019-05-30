@@ -5,7 +5,10 @@ class ChargesController < ApplicationController
 
   def create
   # Amount in cents
-    @amount = session[:amount] * 100
+    @user = User.find_by(id: current_user.id)
+    @user[:account_balance] += 50
+    @user.save
+    @amount = 5000
 
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],

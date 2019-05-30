@@ -8,4 +8,28 @@
 <%= button_to "Bet Requests", bet_requests_path, method: :get%>
 
 
+
+<%= form_tag charges_path do %>
+<article>
+<% if flash[:error].present? %>
+<div id="error_explanation">
+<p><%= flash[:error] %></p>
+</div>
+<% end %>
+<label class="amount">
+<span>Amount: $50.00</span>
+</label>
+</article>
+
+
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+data-description="Monthly subscription"
+data-amount="5000"
+data-locale="auto"></script>
+<% end %>
+
+
+
+
 <div><img src="logo.jpg" width="100" height="80" alt="My Logo" ></div>
