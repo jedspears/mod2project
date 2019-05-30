@@ -1,5 +1,30 @@
 <!DOCTYPE html>
 <html>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
   <head>
     <title>Youwont</title>
     <%= csrf_meta_tags %>
@@ -10,7 +35,17 @@
   </head>
 
   <body>
+    <ul>
+  <li><%=link_to "Home", home_path%></li>
+  <li><a href=/bet_requests>Bet Requests</a></li>
+  <li><a href=/friendships>Freinds</a></li>
+
+  <%if current_user%>
+    <li style="float:right"><%= link_to "log out", user_path(@user), method: :delete%></li>
+  <%else%>
+    <li style="float:right"><%= link_to "log in", login_path%></li>
+  <%end%>
+</ul>
     <%= yield %>
-    <%=button_to "Home", home_path, method: :get%>
   </body>
 </html>
