@@ -13,11 +13,7 @@ Rails.application.routes.draw do
   get '/bets/new', to: 'bets#new', as: 'new_bet'
   post '/bets/create', to: 'bets#create', as: 'create_bet'
   get '/bets', to: 'bets#index', as: 'bets'
-  get '/bets/:id/orange', to: 'bets#orange', as: 'orange_bet'
-  get '/bets/:id/delete', to: 'bets#delete', as: 'delete_bet'
-  patch '/bets/:id/update', to: 'bets#update', as: 'update_bet'
   get '/bets/:id', to: 'bets#show', as: 'bet'
-
 
 
   get '/bet_requests', to: 'bet_requests#index', as: 'bet_requests'
