@@ -1,3 +1,7 @@
+<%if flash[:notice]%>
+  <%=flash[:notice]%>
+<%end%>
+
 <h1>New Bet</h1>
 <%= form_for @bet_request, :url => create_bet_request_path do |f| %>
   <%= f.label "Description" %>
