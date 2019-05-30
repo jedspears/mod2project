@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       session[:user] = @user[:id]
       redirect_to home_path
     else
-      flash[:notice] = @user.errors.full_messages[0]
+      flash[:notice] = @user.errors.full_messages
       redirect_to new_user_path
     end
   end
@@ -47,8 +47,7 @@ class UsersController < ApplicationController
       :last_name,
       :username,
       :password,
-      :email,
-      :account_balance
+      :email
     )
   end
 end
