@@ -1,6 +1,10 @@
+<label>First Name:</label>
 <%=@user.first_name%><br>
+<label>Last Name:</label>
 <%=@user.last_name%><br>
+<label>Username:</label>
 <%=@user.username%><br>
+<label>E-mail:</label>
 <%=@user.email%><br>
 
 <%if current_user != @user %>
@@ -9,7 +13,7 @@
 
 
 <% if current_user == @user%>
-  <%=@user.account_balance%>
+  <label>Balance: </label><%=@user.account_balance%>
 <%end%>
 
 <% if current_user == @user%>

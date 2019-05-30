@@ -36,12 +36,12 @@ li a:hover {
 
   <body>
     <ul>
-  <li><%=link_to "Home", home_path%></li>
-  <li><a href=/bet_requests>Bet Requests</a></li>
-  <li><a href=/friendships>Freinds</a></li>
-
+      <li><%=link_to "Home", home_path%></li>
   <%if current_user%>
-    <li style="float:right"><%= link_to "log out", user_path(@user), method: :delete%></li>
+    <li><a href=/bet_requests>Bet Requests</a></li>
+    <li><a href=/friendships>Freinds</a></li>
+
+    <li style="float:right"><%= link_to "log out", user_path(current_user), method: :delete%></li>
   <%else%>
     <li style="float:right"><%= link_to "log in", login_path%></li>
   <%end%>

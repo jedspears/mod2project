@@ -1,5 +1,5 @@
+<h1>Full Name:</h1>
 <h1><%= "#{@user.first_name} #{@user.last_name}"%></h1>
-<h3><%= @user.username%></h3>
 <%= button_to "Add Friend", new_friendship_path, method: :get%>
 <%= button_to "Friends", friendships_path, method: :get%>
 <%= button_to "New Bet Request", new_bet_request_path, method: :get%>
