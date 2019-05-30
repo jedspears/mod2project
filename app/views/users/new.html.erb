@@ -1,6 +1,4 @@
-<%if flash[:notice]%>
-  <h1><%=flash[:notice]%></h1>
-<%end%>
+
 <h1>Sign Up</h1>
 <%= form_for @user do |f| %>
   <%= f.label "First Name" %>
@@ -15,3 +13,9 @@
   <%= f.text_field :email %>
   <%= f.submit "Register" %>
 <% end %>
+
+<%if flash[:notice]%>
+  <%flash[:notice].each do |notice|%>
+    <h1><%=notice%></h1>
+  <%end%>
+<%end%>
