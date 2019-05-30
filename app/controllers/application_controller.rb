@@ -25,6 +25,9 @@ end
 
 
   def root
+    if !!current_user
+      redirect_to home_path
+    end
     @user = User.new
   end
 
@@ -48,6 +51,11 @@ end
   end
 
   def success
+  end
+
+  def destroy
+    session[:user] = nil
+    redirect_to root_path
   end
 
 end
