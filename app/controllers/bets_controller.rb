@@ -17,7 +17,6 @@ class BetsController < ApplicationController
   end
 
   def show
-    byebug
     @bet = Bet.find(params[:id])
   end
 

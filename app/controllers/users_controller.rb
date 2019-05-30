@@ -47,8 +47,7 @@ class UsersController < ApplicationController
       :last_name,
       :username,
       :password,
-      :email,
-      :account_balance
+      :email
     )
   end
 end
