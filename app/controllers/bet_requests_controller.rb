@@ -14,7 +14,12 @@ class BetRequestsController < ApplicationController
 
   def create
     @bet_request = BetRequest.create(bet_request_params)
-    redirect_to @bet_request
+    if @bet_request.valid?
+      redirect_to @bet_request
+    else
+      flash[:notice] = @bet_request.errors.full_messages
+      redirect_to new_bet_request_path
+    end
   end
 
   def edit
