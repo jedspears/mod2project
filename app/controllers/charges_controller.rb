@@ -9,7 +9,6 @@ class ChargesController < ApplicationController
     @user[:account_balance] += 50
     @user.save
     @amount = 5000
-
     customer = Stripe::Customer.create(
       :email => params[:stripeEmail],
       :source => params[:stripeToken]

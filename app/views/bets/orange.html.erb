@@ -1,6 +1,6 @@
 <h1>Do You Accept These Terms?</h1>
 Pot: <%=@bet.amount%><br>
-Participants: <%=@bet.username1%><br> <%=@bet.username2%>
+Participants: <br><%=@bet.username1%><br> <%=@bet.username2%><br>
 Description: <%=@bet.description%><br>
 <% if @bet.winner1.nil?%>
   <%=form_for @bet, :url => update_bet_path(@bet) do |f| %>

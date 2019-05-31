@@ -4,3 +4,7 @@
   <%= f.text_field :username %>
   <%= f.submit "Add Friend" %>
 <% end %>
+
+<%if flash[:notice]%>
+  <%= flash[:notice] %>
+<%end%>

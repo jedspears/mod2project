@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :notifications, foreign_key: :recipient_id
 
   validates :username, uniqueness: true
-  validates :first_name, :last_name, :username,:email,:email,:password, presence: true
+  validates :first_name, :last_name, :username,:email,:email, presence: true
   has_secure_password
 
 end

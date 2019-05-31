@@ -1,21 +1,58 @@
+<style>
+table {
+  border-collapse: collapse;
+}
+
+table, td, th {
+  border: 1px solid black;
+}
+</style>
+
+<table>
+<tr>
+  <th>
 <label>First Name:</label>
+</th>
+  <th>
 <%=@user.first_name%><br>
+</th>
+<tr>
+</tr>
+<th>
 <label>Last Name:</label>
+</th>
+<th>
 <%=@user.last_name%><br>
+</th>
+</tr>
+<tr>
+  <th>
 <label>Username:</label>
+</th>
+<th>
 <%=@user.username%><br>
+</th>
+</tr>
+<tr><th>
 <label>E-mail:</label>
+</th>
+<th>
 <%=@user.email%><br>
+</th>
+</tr>
+
+<% if current_user == @user%>
+<tr><th>  <label>Balance: </label></th><th>$<%=@user.account_balance%></th></tr>
+<%end%>
+
+
+</table>
 
 <%if current_user != @user %>
   <%= button_to "Start Bet", new_bet_path, method: :get%>
 <%end%>
 
-
-<% if current_user == @user%>
-  <label>Balance: </label><%=@user.account_balance%>
-<%end%>
-
 <% if current_user == @user%>
   <%= button_to "Edit Account", edit_user_path(@user), method: :get%>
+  <%= button_to "Delete Account", user_path(@user), method: :delete%>
 <%end%>
