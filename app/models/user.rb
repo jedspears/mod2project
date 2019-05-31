@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :bet_requests, through: :user_bet_requests
 
   validates :username, uniqueness: true
-  validates :first_name, :last_name, :username,:email,:email,:password, presence: true
+  validates :first_name, :last_name, :username,:email,:email, presence: true
   has_secure_password
 
 end
