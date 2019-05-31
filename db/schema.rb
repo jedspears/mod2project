@@ -49,15 +49,6 @@ ActiveRecord::Schema.define(version: 2019_05_29_163834) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "transacktions", force: :cascade do |t|
-    t.string "username1"
-    t.string "username2"
-    t.integer "amount"
-    t.integer "bet_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "user_bet_requests", force: :cascade do |t|
     t.integer "user_id"
     t.integer "bet_request_id"
