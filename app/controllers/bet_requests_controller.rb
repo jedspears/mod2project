@@ -14,7 +14,13 @@ class BetRequestsController < ApplicationController
 
   def create
     @bet_request = BetRequest.create(bet_request_params)
-    if @bet_request.valid?
+    if @bet_request.amount > 1 && @bet_request.amount > current_user.account_balance
+      flash[:notice] = "amount need to be over 0 or your account balance is below bet amount"
+      redirect_to new_bet_request_path
+    elsif @bet_request.valid?
+      @user = current_user
+      @user.account_balance -=  @bet_request.amount
+      @user.save
       redirect_to @bet_request
     else
       flash[:notice] = @bet_request.errors.full_messages

@@ -27,9 +27,8 @@ ActiveRecord::Schema.define(version: 2019_05_29_163834) do
     t.string "username1"
     t.string "username2"
     t.integer "amount"
-    t.string "status"
+    t.string "status", default: "active"
     t.string "winner1"
-    
     t.string "winner2"
     t.string "real_winner"
     t.datetime "created_at", null: false

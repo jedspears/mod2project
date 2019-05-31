@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <style>
+  body {
+    background-color: lightblue;
+  }
 ul {
   list-style-type: none;
   margin: 0;
@@ -36,10 +39,14 @@ li a:hover {
 
   <body>
     <ul>
-      <li><%=link_to "Home", home_path%></li>
+      <li text><%=link_to "Home", home_path%></li>
   <%if current_user%>
     <li><a href=/bet_requests>Bet Requests</a></li>
     <li><a href=/friendships>Freinds</a></li>
+    <li text><%= link_to "Add Friend", new_friendship_path, method: :get%></li>
+    <li text><%= link_to "New Bet Request", new_bet_request_path, method: :get%></li>
+    <li text><%= link_to "My Account", user_path(current_user), method: :get%></li>
+    <li text><%= link_to "View Bets", bets_path, method: :get%></li>
 
     <li style="float:right"><%= link_to "log out", user_path(current_user), method: :delete%></li>
   <%else%>
