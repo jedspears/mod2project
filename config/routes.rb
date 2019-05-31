@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/home', to: 'application#home', as: 'home'
   get '/success', to: 'application#success', as: 'success'
   get '/login', to: 'application#login', as: 'login'
+  get '/logout', to: 'application#logout', as: 'logout'
   get '/confirm', to: 'application#confirm', as: 'confirm'
 
   post '/friendships/create', to: 'friendships#create', as: 'create_friendship'

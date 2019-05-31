@@ -53,7 +53,7 @@ end
   def success
   end
 
-  def destroy
+  def logout
     session[:user] = nil
     redirect_to root_path
   end
