@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://coffeescript.org/
+>>>>>>> b03b008bf9332dc88a8399d2a47068a27656fa4b
 class Notifications
   constructor: ->
     @notifications = $("[data-behavior='notifications']")
