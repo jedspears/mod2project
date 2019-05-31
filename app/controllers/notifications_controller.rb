@@ -1,8 +1,5 @@
 class NotificationsController < ApplicationController
-<<<<<<< HEAD
-=======
 
->>>>>>> b03b008bf9332dc88a8399d2a47068a27656fa4b
   def index
     @notifications = Notification.where(recipient: current_user).unread
   end
@@ -13,9 +10,4 @@ class NotificationsController < ApplicationController
     render json: {success: true}
   end
 
-<<<<<<< HEAD
-  end
-
-=======
->>>>>>> b03b008bf9332dc88a8399d2a47068a27656fa4b
 end
