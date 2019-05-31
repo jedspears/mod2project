@@ -14,6 +14,11 @@ class BetRequestsController < ApplicationController
 
   def create
     @bet_request = BetRequest.create(bet_request_params)
+
+    byebug
+    @bet_request.associate
+    (User.all.uniq - [current_user]).each do |user|
+      Notification.create(recipient: user, actor: current_user, action: "posted", notifiable: @bet_request)
     if @bet_request.amount > 1 && @bet_request.amount > current_user.account_balance
       flash[:notice] = "amount need to be over 0 or your account balance is below bet amount"
       redirect_to new_bet_request_path
@@ -23,6 +28,9 @@ class BetRequestsController < ApplicationController
       flash[:notice] = @bet_request.errors.full_messages
       redirect_to new_bet_request_path
     end
+    byebug
+    redirect_to @bet_request
+
   end
 
   def edit

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  # resources :notifications
   get '/', to: 'application#root', as: 'root'
   get '/home', to: 'application#home', as: 'home'
   get '/success', to: 'application#success', as: 'success'
@@ -32,6 +33,14 @@ Rails.application.routes.draw do
   patch '/bet_requests/:id/bananas', to: 'bet_requests#bananas', as: 'bananas'
   # get '/bet_requests/:id/transfer', to: 'bet_requests#transfer', as: 'transfer'
   get '/bet_requests/:id', to: 'bet_requests#show', as: 'bet_request'
+
+  resources :notifications, defaults: { format: :json }, only: [:index] do
+    get 'notifications', to: 'notifications#index'
+    collection do
+      post 'mark_as_read'
+    end 
+  end
+
 
   resources :charges, only: :create
   resources :user_transactions
