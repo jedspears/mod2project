@@ -1,4 +1,5 @@
 class NotificationsController < ApplicationController
+
   def index
     @notifications = Notification.where(recipient: current_user).unread
   end
@@ -7,8 +8,6 @@ class NotificationsController < ApplicationController
     @notifications = Notification.where(recipient: current_user).unread
     @notifications.update_all(read_at: Time.zone.now)
     render json: {success: true}
-  end
-
   end
 
 end

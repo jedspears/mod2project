@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'stripe'
 gem 'figaro'
+gem 'bootstrap', '~> 4.3.1'
 
 gem "animate-rails"
 # gem "notifiable"
