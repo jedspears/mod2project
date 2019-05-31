@@ -14,12 +14,14 @@ class BetRequestsController < ApplicationController
 
   def create
     @bet_request = BetRequest.create(bet_request_params)
-    if @bet_request.valid?
-      redirect_to @bet_request
-    else
-      flash[:notice] = @bet_request.errors.full_messages
-      redirect_to new_bet_request_path
+    byebug
+    @bet_request.associate
+    (User.all.uniq - [current_user]).each do |user|
+      Notification.create(recipient: user, actor: current_user, action: "posted", notifiable: @bet_request)
     end
+    byebug
+    redirect_to @bet_request
+
   end
 
   def edit

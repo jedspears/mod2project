@@ -30,6 +30,9 @@ gem 'stripe'
 gem 'figaro'
 
 gem "animate-rails"
+# gem "notifiable"
+gem 'notifiable-rails', '~> 0.30.4'
+# gem 'jbuilder', '~> 2.9.1'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
